@@ -323,7 +323,8 @@ users:
   - name: $USERNAME
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
-    password: $(openssl passwd -6 "$PASSWORD" | tr -d '\n')
+    lock_passwd: false
+    passwd: $(openssl passwd -6 "$PASSWORD" | tr -d '\n')
 chpasswd:
   list: |
     root:$PASSWORD
